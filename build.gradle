@@ -25,7 +25,7 @@ tasks.withType(JavaCompile) {
 
 application {
     mainModule = 'kr.kro.lanthanide.tetris'
-    mainClass = 'kr.kro.lanthanide.tetris.HelloApplication'
+    mainClass = 'kr.kro.lanthanide.tetris.Tetris'
 }
 
 javafx {
@@ -60,7 +60,7 @@ jlinkZip {
 
 jar {
 //    manifest {
-//        attributes 'Main-Class' : 'kr.kro.lanthanide.tetris.HelloApplication'
+//        attributes 'Main-Class' : 'kr.kro.lanthanide.tetris.Tetris'
 //    }
 //    from {
 //        configurations.runtimeClasspath.collect {
