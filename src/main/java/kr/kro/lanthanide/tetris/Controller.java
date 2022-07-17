@@ -1,19 +1,37 @@
 package kr.kro.lanthanide.tetris;
 
+import javafx.event.Event;
+import javafx.event.EventHandler;
+import javafx.event.EventType;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Label;
+import javafx.scene.control.Button;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
+import javafx.scene.layout.Pane;
+import javafx.scene.text.Text;
 
 import java.net.URL;
 import java.util.ResourceBundle;
 
 public class Controller implements Initializable {
 
-    public void playGame() {
+    @FXML
+    Text title;
+
+    @FXML
+    Button buttonPlayPrompt, buttonSettings, buttonExit, buttonMode;
+
+    @FXML
+    Pane playPrompt;
+
+    public void promptPlay() {
         System.out.println("Starting Game");
+        playPrompt.setVisible(true);
+        playPrompt.requestFocus();
     }
 
-    public void showStatics() {
+    public void openSettings() {
         System.out.println("Showing Statics");
     }
 
@@ -22,9 +40,15 @@ public class Controller implements Initializable {
         Tetris.window.close();
     }
 
+    public void changeMode() {
+        System.out.println("Changing Mode");
+    }
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        System.out.println("Loading Data...");
-
+        playPrompt.setVisible(false);
+        playPrompt.setOnKeyPressed(e -> {
+            if (e.getCode() == KeyCode.ESCAPE && playPrompt.isVisible()) playPrompt.setVisible(false);
+        });
     }
 }

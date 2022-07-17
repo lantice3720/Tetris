@@ -1,32 +1,30 @@
 package kr.kro.lanthanide.tetris;
 
 import javafx.application.Application;
-import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.layout.StackPane;
-import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class Tetris extends Application  {
+public class Tetris extends Application {
 
     static Stage window;
+    static Scene menu;
 
     public static void main(String[] args) {
-    launch();
-}
+        launch();
+    }
 
     @Override
     public void start(Stage stage) throws IOException {
         window = stage;
 
         Parent root = FXMLLoader.load(getClass().getResource("menu.fxml"));
-        window.setScene(new Scene(root));
+        menu = new Scene(root);
+
+        window.setScene(menu);
 
         window.show();
     }
