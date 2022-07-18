@@ -5,56 +5,80 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="399.0"
-      prefWidth="553.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="kr.kro.lanthanide.tetris.Controller">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="399.0" prefWidth="553.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="kr.kro.lanthanide.tetris.Controller">
     <children>
-        <Text fx:id="title" layoutX="108.0" layoutY="104.0" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="0.0"
-              text="Tetris" textAlignment="CENTER" wrappingWidth="337.48046875">
+        <Text fx:id="title" layoutX="108.0" layoutY="104.0" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="0.0" text="Tetris" textAlignment="CENTER" wrappingWidth="337.48046875">
             <font>
-                <Font name="MS Outlook" size="54.0"/>
+                <Font name="MS Outlook" size="54.0" />
             </font>
         </Text>
-        <Button fx:id="buttonPlayPrompt" layoutX="145.0" layoutY="161.0" mnemonicParsing="false" onAction="#promptPlay"
-                prefHeight="41.0" prefWidth="263.0" text="Play">
+        <Button fx:id="buttonPlayPrompt" layoutX="145.0" layoutY="161.0" mnemonicParsing="false" onAction="#promptPlay" prefHeight="41.0" prefWidth="263.0" text="Play">
             <font>
-                <Font name="MS Outlook" size="22.0"/>
+                <Font name="MS Outlook" size="22.0" />
             </font>
         </Button>
-        <Button fx:id="buttonSettings" layoutX="145.0" layoutY="227.0" mnemonicParsing="false" onAction="#openSettings"
-                prefHeight="41.0" prefWidth="263.0" text="Settings">
+        <Button fx:id="buttonSettings" layoutX="145.0" layoutY="227.0" mnemonicParsing="false" onAction="#openSettings" prefHeight="41.0" prefWidth="263.0" text="Settings">
             <font>
-                <Font name="MS Outlook" size="22.0"/>
+                <Font name="MS Outlook" size="22.0" />
             </font>
         </Button>
-        <Button fx:id="buttonExit" layoutX="145.0" layoutY="293.0" mnemonicParsing="false" onAction="#exitGame"
-                prefHeight="41.0" prefWidth="263.0" text="Exit">
+        <Button fx:id="buttonExit" layoutX="145.0" layoutY="293.0" mnemonicParsing="false" onAction="#exitGame" prefHeight="41.0" prefWidth="263.0" text="Exit">
             <font>
-                <Font name="MS Outlook" size="22.0"/>
+                <Font name="MS Outlook" size="22.0" />
             </font>
         </Button>
-        <Pane fx:id="playPrompt" layoutX="52.0" layoutY="25.0" prefHeight="350.0" prefWidth="450.0"
-              style="-fx-background-color: lightgray; -fx-border-color: black; -fx-border-width: 2;">
+        <Pane fx:id="playPrompt" layoutX="52.0" layoutY="25.0" prefHeight="350.0" prefWidth="450.0" style="-fx-background-color: lightgray; -fx-border-color: black; -fx-border-width: 2;">
             <children>
-                <Text layoutX="160.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Before Play"
-                      textAlignment="CENTER">
+                <Text layoutX="160.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Before Play" textAlignment="CENTER">
                     <font>
-                        <Font name="MS Outlook" size="24.0"/>
+                        <Font name="MS Outlook" size="24.0" />
                     </font>
                 </Text>
-                <Button fx:id="buttonMode" layoutX="110.0" layoutY="80.0" mnemonicParsing="false" onAction="#changeMode"
-                        prefHeight="30.0" prefWidth="100.0" text="Normal">
+                <Button fx:id="buttonMode" layoutX="110.0" layoutY="80.0" mnemonicParsing="false" onAction="#changeMode" prefHeight="30.0" prefWidth="100.0" text="Normal">
                     <font>
-                        <Font name="MS Outlook" size="16.0"/>
+                        <Font name="MS Outlook" size="16.0" />
                     </font>
                 </Button>
-                <Text layoutX="25.0" layoutY="100.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Mode"
-                      textAlignment="CENTER">
+                <Text layoutX="25.0" layoutY="100.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Mode" textAlignment="CENTER">
                     <font>
-                        <Font name="MS Outlook" size="20.0"/>
+                        <Font name="MS Outlook" size="20.0" />
                     </font>
                 </Text>
+            <Text layoutX="10.0" layoutY="20.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ESC to quit">
+               <font>
+                  <Font name="MS Outlook" size="12.0" />
+               </font>
+            </Text>
+            <Button fx:id="buttonPlayStart" layoutX="185.0" layoutY="300.0" mnemonicParsing="false" onAction="#startPlay" text="Play">
+               <font>
+                  <Font name="MS Outlook" size="22.0" />
+               </font>
+            </Button>
             </children>
         </Pane>
+      <Pane fx:id="setting" layoutX="52.0" layoutY="25.0" prefHeight="350.0" prefWidth="450.0" style="-fx-background-color: lightgray; -fx-border-color: black; -fx-border-width: 2;">
+         <children>
+            <Text layoutX="180.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Settings" textAlignment="CENTER">
+               <font>
+                  <Font name="MS Outlook" size="24.0" />
+               </font>
+            </Text>
+            <Button fx:id="buttonTheme" layoutX="110.0" layoutY="80.0" mnemonicParsing="false" onAction="#changeTheme" prefHeight="30.0" prefWidth="100.0" text="White">
+               <font>
+                  <Font name="MS Outlook" size="16.0" />
+               </font>
+            </Button>
+            <Text layoutX="25.0" layoutY="100.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Theme" textAlignment="CENTER">
+               <font>
+                  <Font name="MS Outlook" size="20.0" />
+               </font>
+            </Text>
+            <Text layoutX="10.0" layoutY="20.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ESC to quit">
+               <font>
+                  <Font name="MS Outlook" size="12.0" />
+               </font>
+            </Text>
+         </children>
+      </Pane>
     </children>
 </Pane>
-

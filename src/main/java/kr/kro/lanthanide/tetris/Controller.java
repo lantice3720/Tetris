@@ -2,7 +2,6 @@ package kr.kro.lanthanide.tetris;
 
 import javafx.event.Event;
 import javafx.event.EventHandler;
-import javafx.event.EventType;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -20,19 +19,26 @@ public class Controller implements Initializable {
     Text title;
 
     @FXML
-    Button buttonPlayPrompt, buttonSettings, buttonExit, buttonMode;
+    Button buttonPlayPrompt, buttonSettings, buttonExit, buttonMode, buttonTheme, buttonPlayStart;
 
     @FXML
-    Pane playPrompt;
+    Pane playPrompt, setting;
+
+    Boolean playPromptOpened, settingOpened = false;
 
     public void promptPlay() {
-        System.out.println("Starting Game");
+        System.out.println("Prompting Game");
         playPrompt.setVisible(true);
-        playPrompt.requestFocus();
+    }
+
+    public void startPlay() {
+        System.out.println("Starting Game");
+        playPrompt.setVisible(false);
     }
 
     public void openSettings() {
-        System.out.println("Showing Statics");
+        System.out.println("Opening Settings");
+        setting.setVisible(true);
     }
 
     public void exitGame() {
@@ -44,11 +50,23 @@ public class Controller implements Initializable {
         System.out.println("Changing Mode");
     }
 
+    public void changeTheme() {
+        System.out.println("Changing Theme");
+    }
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         playPrompt.setVisible(false);
-        playPrompt.setOnKeyPressed(e -> {
-            if (e.getCode() == KeyCode.ESCAPE && playPrompt.isVisible()) playPrompt.setVisible(false);
-        });
+        setting.setVisible(false);
+    }
+
+    public void onKeyPressed(KeyEvent e) {
+        switch (e.getCode()) {
+            case ESCAPE -> {
+                playPromptOpened = settingOpened = false;
+                playPrompt.setVisible(false);
+                setting.setVisible(false);
+            }
+        }
     }
 }
